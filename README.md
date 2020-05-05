@@ -21,15 +21,17 @@ Things you may want to cover:
 |password|string|null: false|
 
 ### Association
+- has_many:groups
 - has_many:groups_users
 - has_many:messages
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
+|name|string|null: false|
 
 ### Association
+-has_many:users
 - has_many:groups_users
 - has_many:messages
 

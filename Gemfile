@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # To write view by haml, bundle the haml-rails
 gem 'haml-rails'
 gem 'erb2haml'
+
+gem 'font-awesome-sass'

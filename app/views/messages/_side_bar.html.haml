@@ -5,29 +5,16 @@
         = current_user.name
       %ul.top-items__icon
         .li
-          = link_to "#", class: 'icon-link left-icon' do
+          = link_to new_group_path, class: 'icon-link left-icon' do
             %i.far.fa-edit
         .li
           = link_to edit_user_path(current_user), class: 'icon-link' do
             %i.fas.fa-cog
   .side-bar__group-list
-    .a-group
-      = link_to "#", class: 'a-group__group-link' do
-        %p.a-group__group-name
-          techcamp
-        %p.a-group__group-status
-          まだメッセージがありません
-
-    .a-group
-      = link_to "#", class: 'a-group__group-link' do
-        %p.a-group__group-name
-          CHAT-GROUP
-        %p.a-group__group-status
-          まだメッセージがありません
-
-    .a-group
-      = link_to "#", class: 'a-group__group-link' do
-        %p.a-group__group-name
-          talkbox
-        %p.a-group__group-status
-          まだメッセージがありません
+    - current_user.groups.each do |group|
+      .a-group
+        = link_to "#", class: 'a-group__group-link' do
+          %p.a-group__group-name
+            = group.name
+          %p.a-group__group-status
+            まだメッセージがありません

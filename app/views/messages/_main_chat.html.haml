@@ -8,28 +8,14 @@
     = link_to "#", class: 'edit-button' do
       %p.link-chr
         Edit
-  .main-chat__message-view
-    .a-message
-      .a-message__head
-        %p.user-name
-          masa
-        %p.sended-date
-          2020/04/27(Sun) 17:43:01
-      %p.a-message__content
-        こんばんは
-    .a-message
-      .a-message__head
-        %p.user-name
-          masa
-        %p.sended-date
-          2020/04/27(Sun) 17:43:01
-      %p.a-message__content
-        こんばんは
+  .messages
+    = render @messages
   .main-chat__message-form
-    %form
-      .form-wrapper
-        %input.form-wrapper__text-area{type: 'text', placeholder: 'type a text'}
-        %label.form-wrapper__file-choose
-          = icon('fas', 'image')
-          %input.invisible{type: 'file'}
-      %input.submit-button{type: 'submit', value: 'Send'}
+    .form-wrapper.form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form-wrapper__text-areae', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form-wrapper__file-choose' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'invisible'
+        = f.submit 'Send', class: 'submit-button'

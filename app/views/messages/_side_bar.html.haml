@@ -15,6 +15,7 @@
       .a-group
         = link_to group_messages_path(group), class: 'a-group__group-link' do
           .a-group__group-name
+
             = group.name
           .a-group__group-status
             = group.show_last_message

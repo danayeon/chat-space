@@ -14,7 +14,7 @@
     - current_user.groups.each do |group|
       .a-group
         = link_to group_messages_path(group), class: 'a-group__group-link' do
-          %p.a-group__group-name
+          .a-group__group-name
             = group.name
-          %p.a-group__group-status
-            まだメッセージがありません
+          .a-group__group-status
+            = group.show_last_message

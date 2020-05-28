@@ -19,7 +19,7 @@ $(function(){
           <img src=${message.image} >
         </div>`
       return html;
-    } else {
+  } else {
       //同様にdata-idが反映されるようにしている
       var html =
        `<div class="a-message" data-message-id=${message.id}>

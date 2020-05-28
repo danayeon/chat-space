@@ -8,14 +8,13 @@
           = link_to new_group_path, class: 'icon-link left-icon' do
             %i.far.fa-edit
         .li
-          = link_to edit_user_path(current_user), class: 'icon-link' do
-            %i.fas.fa-cog
+          = link_to edit_user_path(current_user) do
+            = icon('fas', 'cog', class: 'icon-link')
   .side-bar__group-list
     - current_user.groups.each do |group|
       .a-group
         = link_to group_messages_path(group), class: 'a-group__group-link' do
-          .a-group__group-name
-
+          %p.a-group__group-name
             = group.name
-          .a-group__group-status
+          %p.a-group__group-status
             = group.show_last_message

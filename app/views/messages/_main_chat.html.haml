@@ -2,22 +2,26 @@
   .main-chat__group-info
     .group-status
       %p.group-status__group-name
-        =@group.name
+        = @group.name
       %p.group-status__member
-        Member:
-        - @group.users.each do |user|
-          %span.chat-header__user #{user.name}
+        Member：
+        - @group.users.each do |member|
+          = member.name
     = link_to edit_group_path(@group), class: 'edit-button' do
       %p.link-chr
         Edit
-  .messages
+  .main-chat__message-view
     = render @messages
+
+
   .main-chat__message-form
-    .form-wrapper.form
-      = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form-wrapper__text-area', placeholder: 'type a message'
-        .form__mask
+    .form
+      .form-wrapper
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'form-wrapper__text-area', placeholder: 'type a message'
+
           = f.label :image, class: 'form-wrapper__file-choose' do
-            = icon('fas', 'image', class: 'icon')
+            = icon('fas', 'image')
+
             = f.file_field :image, class: 'invisible'
-        = f.submit 'Send', class: 'submit-button'
+          = f.submit 'Send', class: 'send-button'

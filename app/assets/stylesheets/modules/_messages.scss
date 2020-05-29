@@ -165,6 +165,7 @@ a {
     width: calc(100vw - 300px);
     padding: 10px 40px 0 20px;
     background-color: #d2d2d2;
+    @include Flexbox($align: center);
 
     .form{
       @include Flexbox();

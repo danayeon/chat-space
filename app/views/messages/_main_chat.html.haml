@@ -19,9 +19,7 @@
       .form-wrapper
         = form_for [@group, @message] do |f|
           = f.text_field :content, class: 'form-wrapper__text-area', placeholder: 'type a message'
-
           = f.label :image, class: 'form-wrapper__file-choose' do
             = icon('fas', 'image')
-
             = f.file_field :image, class: 'invisible'
           = f.submit 'Send', class: 'send-button'
